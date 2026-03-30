@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nasch — Discord Dev</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+
+  <!-- Background GIF -->
+  <img class="bg-video" src="./téléchargement.gif" alt="" aria-hidden="true" draggable="false" />
+  <div class="bg-overlay"></div>
+  <div class="bg-grain" aria-hidden="true"></div>
+
+  <!-- Splash -->
+  <div class="splash" id="splash" role="button" aria-label="Cliquer pour entrer">
+    <div class="splash-label">
+      <span class="splash-text">click</span>
+      <span class="splash-dot"></span>
+    </div>
+  </div>
+
+  <!-- Particules canvas -->
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <!-- Volume -->
+  <div class="volume-widget" id="volume-widget">
+    <button class="volume-btn" id="volume-btn" aria-label="Volume">
+      <svg id="vol-icon" viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
+        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+      </svg>
+    </button>
+    <div class="volume-slider-wrap" id="volume-slider-wrap">
+      <input class="volume-slider" id="volume-slider" type="range" min="0" max="100" value="100" aria-label="Niveau du volume" />
+    </div>
+  </div>
+
+  <div class="page">
+
+    <!-- Avatar -->
+    <div class="avatar-wrap f0">
+      <img class="avatar-img"
+           src="./Blue_box_matching_pfp_2_2.jpg"
+           alt="Photo de profil de Nasch"
+           draggable="false" />
+    </div>
+
+    <!-- Identity -->
+    <div class="identity f1">
+      <h1 class="name">Nasch</h1>
+      <div class="socials">
+        <span class="socials-prefix">//</span>
+        <a class="social-btn" href="https://github.com/Nasch23" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+        </a>
+        <a class="social-btn" href="https://discord.gg/tA2FqP6uYQ" target="_blank" rel="noopener" aria-label="Discord">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+        </a>
+      </div>
+      <p class="bio">dev bots &amp; apps — <strong>Discord.js</strong></p>
+    </div>
+
+    <!-- Music player -->
+    <audio id="audio" src="./Gazo, Tiakola - 2434 (Visualizer).mp3" loop></audio>
+
+    <div class="player f2" role="region" aria-label="Lecteur audio">
+
+      <div class="player-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="var(--amber)">
+          <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/>
+        </svg>
+      </div>
+
+      <div class="player-mid">
+        <span class="player-time" id="time-current">0:00</span>
+
+        <div class="progress-track" id="progress-track" role="slider"
+             aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+
+        <span class="player-time" id="time-total">--:--</span>
+      </div>
+
+      <div class="player-controls">
+        <button class="ctrl" id="btn-prev" aria-label="Recommencer">
+          <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+        </button>
+        <button class="ctrl play-pause" id="btn-play" aria-label="Lecture">
+          <svg id="icon-pause" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+          <svg id="icon-play"  viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <button class="ctrl" id="btn-next" aria-label="+10 secondes">
+          <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zm2-8.14L11.03 12 8 14.14V9.86zM16 6h2v12h-2z"/></svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="./script.js" defer></script>
+
+</body>
+</html>
